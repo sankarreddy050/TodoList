@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr><a href="{% url 'task-create' %}">click here to Add New Task</a></tr>
+        <tr>
+            <th>Items</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{task.title}}</td>
+            <td><a href="{% url 'DetailsView' task.id %}">view</a></td>
+            <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+            <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+        </tr>
+        {% empty %}
+            <h3>no items</h3>
+        {% endfor %}
+    </table>
+</body>
+</html>
