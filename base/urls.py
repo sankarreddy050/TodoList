@@ -1,7 +1,8 @@
 from django.urls import path
-from . views import TaskList ,DetailsView,TaskCreate, TaskUpdate, TaskDelete, CustomLoginView, Logout
+from . views import TaskList ,DetailsView,TaskCreate, TaskUpdate, TaskDelete, CustomLoginView, Logout, RegisterForm
 
 urlpatterns = [
+    path('register/',RegisterForm.as_view(),name="register"),
     path('login/',CustomLoginView.as_view(), name="login"),
     path('logout/',Logout.as_view(),name="logout"),
     path('', TaskList.as_view(), name='tasks'),
