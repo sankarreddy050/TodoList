@@ -15,7 +15,14 @@
     {% endif %}
     <hr><hr>
     <table>
-        <tr><a href="{% url 'task-create' %}">click here to Add New Task</a></tr>
+        <tr><a href="{% url 'task-create' %}">click here to Add New Task</a></tr><br>
+        <tr>
+            <form action="" method="GET">
+                {% csrf_token %}
+                <input type="text" name="search-area" valuye="{{search_input}}"><br>
+                <input type="submit" value="search">
+            </form>
+        </tr>
         <tr>
             <th>Items</th>
         </tr>
